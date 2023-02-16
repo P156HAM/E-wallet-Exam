@@ -1,0 +1,98 @@
+.main-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.label-title {
+    align-self: flex-start;
+    font-size: 12px;
+    font-weight: 400;
+}
+
+.card-holder__label {
+    margin-top: 10px;
+}
+
+.card__info {
+    column-gap: 50px;
+}
+
+.top-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.top-title {
+    width: 250px;
+    height: 98px;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 35px;
+    line-height: 100%;
+}
+
+.input-container {
+    display: flex;
+    flex-direction: column;
+    width: 382px;
+}
+
+input {
+    height: 56px;
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    border-radius: 8px;
+    font-size: 14px;
+}
+
+.input-container__Small {
+    display: flex;
+    justify-content: space-between;
+}
+
+.vendor-dropdown {
+    height: 56px;
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    border-radius: 8px;
+}
+
+.container__valid-thru {
+    display: flex;
+    flex-direction: column;
+}
+
+.container__ccv {
+    display: flex;
+    flex-direction: column;  
+}
+
+.addcard-button {
+    width: 382px;
+    height: 72px;
+    background: #000000;
+    border-radius: 8px;
+    color: #fff;
+    font-size: 22px;
+    line-height: 24.64px;
+    text-align: center;
+    margin-top: 25px;
+}
+
+.back-button {
+    width: 382px;
+    height: 72px;
+    background: #F33355;
+    border-radius: 8px;
+    color: #fff;
+    font-size: 22px;
+    line-height: 24.64px;
+    text-align: center;
+    margin-top: 25px;
+}
+
+.vendor-container {
+    display: flex;
+    flex-direction: column;
+}
