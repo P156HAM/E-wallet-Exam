@@ -1,0 +1,5 @@
+.top-container {
+    height: 430px;
+    display: flex;
+    flex-direction: row;
+}

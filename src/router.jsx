@@ -11,6 +11,6 @@ const router = createBrowserRouter([
         path: '/addcard',
         element: <CardForm />
     }
-]) 
+]); 
 
 export default router

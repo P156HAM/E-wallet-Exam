@@ -7,17 +7,24 @@ import chipDark from '../../assets/chip-dark.svg'
 import { useState } from 'react'
 import { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
+import Card from '../Card/Card'
 
 function CardForm() {
 
-    const [ card, setCard ] = useState([]);
+    const [ card, setCard ] = useState(JSON.parse(localStorage.getItem('addedCard')) || []);
     const [ cardNumber, setCardNumber] = useState('XXXX XXXX XXXX XXXX')
     const [ cardHolder, setCardHolder ] = useState('FIRSTNAME LASTNAME')
     const [ validThru, setValidThru ] = useState('MM/YY')
     const [ ccv, setCcv ] = useState('')
     const [ vendor, setVendor ] = useState('bitcoinInc')
     const [ cardColor, setCardColor ] = useState('#D0D0D0')
-    console.log(card)
+    
+    
+    useEffect(() => {
+        if(card) {
+            localStorage.setItem('addedCard', JSON.stringify(card))
+        }
+    }, [card])
 
     useEffect(() => {
         if(vendor == 'bitcoinInc') {
@@ -43,14 +50,15 @@ function CardForm() {
         setCard((currentCard) => {
             return[...currentCard, addedCard]
         });
+        
     }
 
     const navigate = useNavigate();
 
     useEffect(() => {
-        if(card.length > 0) {
-            navigate('/', { state: card })
-        }
+         if(ccv.length > 0) {
+             navigate('/', { state: card })
+         }
     }, [card])
 
     function handelClick() {
@@ -62,28 +70,13 @@ function CardForm() {
         <div className='main-container'>
             <section className='top-container'>
                 <h1 className='top-title'>ADD A NEW BANK CARD</h1>
-                <article className='card-container'>
-                    <header className='card-header'>
-                        <img className='card__logo' src={ chipDark } alt="" />
-                        {vendor == 'bitcoinInc' ? <img className='card__logo' src={ bitcoinLogo } alt=""/> : ''}
-                        {vendor == 'blockChainInc' ? <img className='card__logo' src={ blockchainLogo } alt="" /> : ''}
-                        {vendor == 'ninjaBank' ? <img className='card__logo' src={ ninjaLogo } alt="" /> : ''}
-                        {vendor == 'evilCorp' ? <img className='card__logo' src={ evilLogo } alt="" /> : ''}
-                    </header>
-                    <main className='card-main'>
-                        <h2 className='card__number'> {cardNumber} </h2>
-                    </main>
-                    <footer className='card-footer'>
-                        <section className='Card__holder'>
-                            <p> CARDHOLDER NAME </p>
-                            <p> VALID THRU </p>
-                        </section>
-                        <section className='Card__info'>
-                            <h3> { cardHolder } </h3>
-                            <h3> { validThru } </h3>
-                        </section>
-                    </footer>
-                </article>
+                <Card 
+                    className={ `card-container-${vendor.toLowerCase()}` }
+                    vendor={ vendor }
+                    cardNumber={ cardNumber }
+                    cardHolder={ cardHolder }
+                    validThru={ validThru }
+                />
             </section>
             <section className='input-container'>
                 <br />
@@ -93,7 +86,7 @@ function CardForm() {
                 
                 <label className='label-title card-holder__label' htmlFor="card-holder">CARD HOLDER</label>
                 <input type="text" id='card-holder'
-                onChange={(event) => {setCardHolder(event.target.value)}}/>
+                onKeyUp={(event) => {setCardHolder(event.target.value.toUpperCase())}}/>
                 <div className='input-container__Small'>
                     <article className='container__valid-thru'>
                         <br />
@@ -121,7 +114,8 @@ function CardForm() {
                 </div>
             </section>
             <button className='addcard-button' onClick={ handelClick }>ADD CARD</button>
-            <button className='back-button'>MY CARDS</button>
+            <button className='back-button'
+            onClick={ () => navigate('/') }>MY CARDS</button>
         </div>
     )
 }

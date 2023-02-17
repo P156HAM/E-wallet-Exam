@@ -1,0 +1,30 @@
+
+.card-container-blockchaininc__stack {
+    margin-bottom: -190px;
+    z-index: -3;
+    position: relative;
+}
+
+.card-container-evilcorp__stack {
+    border-radius: 8px;
+    background-color: #F33355;
+    position: relative;
+    margin-top: -184px;
+    z-index: 1;
+}
+
+.card-container-ninjabank__stack {
+    width: 382px;
+    height: 241px;
+    z-index: -2;
+    position: relative;
+    margin-top: 5px;
+}
+
+.card-container-bitcoininc__stack {
+    width: 382px;
+    height: 241px;
+    margin-top: -190px;
+    z-index: 2;
+    position: relative;
+}

@@ -7,10 +7,10 @@ import evilLogo from '../../assets/vendor-evil.svg'
 import ninjaLogo from '../../assets/vendor-ninja.svg'
 
 function Card(props) {
-    const { vendor, cardNumber, cardHolder, validThru } = props;
+    const { vendor, cardNumber, cardHolder, validThru, className } = props;
     if(cardNumber) {
         return(
-            <article className='card-container'>
+            <article className={ `${className}` }>
                 <header className='card-header'>
                     <img className='card__logo' src={ chipDark } alt="" />
                     {vendor == 'bitcoinInc' ? <img className='card__logo' src={ bitcoinLogo } alt=""/> : ''}

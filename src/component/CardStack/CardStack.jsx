@@ -15,10 +15,11 @@ function CardStack(props) {
         return(
             <article className='card-container' onClick={ onClick }>
                 <Card
-                    vendor={card.vendor}
-                    cardNumber={card.cardNumber}
-                    cardHolder={card.cardHolder}
-                    validThru={card.validThru}
+                className={`card-container-${card.vendor.toLowerCase()} card-container-${card.vendor.toLowerCase()}__stack`}
+                vendor={card.vendor}
+                cardNumber={card.cardNumber}
+                cardHolder={card.cardHolder}
+                validThru={card.validThru}
                 />
             </article>
         )

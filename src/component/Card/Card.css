@@ -1,6 +1,48 @@
 @import url('https://fonts.googleapis.com/css2?family=PT+Mono&display=swap');
 
-.card-container {
+.card-container-blockchaininc {
+    width: 382px;
+    height: 241px;
+    border-radius: 8px;
+    background-color: #8B58F9;
+    display: flex;
+    flex-direction: column;
+    font-family: 'PT Mono';
+    font-style: normal;
+    letter-spacing: 0.03em;
+    align-self: flex-start;
+}
+
+.card-container-evilcorp {
+    width: 382px;
+    height: 241px;
+    border-radius: 8px;
+    background-color: #F33355;
+    display: flex;
+    flex-direction: column;
+    font-family: 'PT Mono';
+    font-style: normal;
+    background: linear-gradient(248.3deg, rgba(0, 0, 0, 0.16) 0%, rgba(0, 0, 0, 0) 100%), #F33355;
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    color: #FFFFFF;
+    letter-spacing: 0.03em;
+}
+
+.card-container-ninjabank {
+    width: 382px;
+    height: 241px;
+    border-radius: 8px;
+    background-color: #222222;
+    display: flex;
+    flex-direction: column;
+    font-family: 'PT Mono';
+    font-style: normal;
+    letter-spacing: 0.03em;
+    color: #FFFFFF;
+}
+
+.card-container-bitcoininc {
     width: 382px;
     height: 241px;
     border-radius: 8px;
@@ -9,6 +51,7 @@
     flex-direction: column;
     font-family: 'PT Mono';
     font-style: normal;
+    letter-spacing: 0.03em;
 }
 
 .card-header {
@@ -27,6 +70,7 @@
 
 .card-main {
     height: 55px;
+    font-size: 18px;
 }
 
 .card-footer {

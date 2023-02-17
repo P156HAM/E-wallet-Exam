@@ -1,12 +1,23 @@
 import './Home.css'
 import Top from '../../component/Top/Top'
-import { useLocation } from 'react-router-dom'
 import Card from '../../component/Card/Card';
 import CardStack from '../../component/CardStack/CardStack';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+
 
 function Home() {
-    const { state } = useLocation();
+    const [ state, setState ] = useState([]);
+    
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        const cards = JSON.parse(localStorage.getItem('addedCard'));
+        if(cards) {
+            setState(cards);
+        }
+    }, [])
+
     const [ activeCard, setActiveCard ] = useState(null);
     const cards = state.map((card) => {
         return(
@@ -25,20 +36,11 @@ function Home() {
     return(
         <div>
             <Top activeCard={ activeCard } />
-            {activeCard && (
-                <div className='active-card-container'>
-                    <Card
-                    vendor={ activeCard.vendor }
-                    cardNumber={ activeCard.cardNumber }
-                    cardHolder={ activeCard.cardHolder }
-                    validThru={ activeCard.validThru }
-                    />
-                </div>
-            )}
             <div className='cards-container'>
             { cards }
             </div>
-            
+            <button className='add-card__button'
+            onClick={() => navigate('/addcard') }>ADD A NEW CARD</button>
         </div>
     )
 }
