@@ -61,31 +61,31 @@ function CardForm() {
             </section>
             <section className='input-container'>
                 <br />
-                <label className='label-title' htmlFor="card-number">CARD NUMBER</label>
-                <input type="tel" id='card-number' maxLength={16}
+                <label className='label-title'>CARD NUMBER</label>
+                <input type="tel" maxLength={16}
                 onChange={(event) => {setCardNumber((event.target.value).match(/\d{1,4}/g).join(' '))}}/>
                 
-                <label className='label-title card-holder__label' htmlFor="card-holder">CARD HOLDER</label>
-                <input type="text" id='card-holder'
+                <label className='label-title card-holder__label'>CARD HOLDER</label>
+                <input type="text"
                 onKeyUp={(event) => {setCardHolder(event.target.value.toUpperCase())}}/>
                 <div className='input-container__Small'>
                     <article className='container__valid-thru'>
                         <br />
-                        <label className='label-title' htmlFor="valid-thru">VALID THRU</label>
-                        <input type="tel" id='valid-thru' maxLength={4}
+                        <label className='label-title'>VALID THRU</label>
+                        <input type="tel" maxLength={4}
                         onChange={(event) => {setValidThru((event.target.value).match(/\d{1,2}/g).join('/'))}} />
                     </article>
                     <article className='container__ccv'>
                         <br />
-                        <label className='label-title' htmlFor="ccv">CCV</label>
-                        <input type="tel" id='ccv' maxLength={3}
+                        <label className='label-title'>CCV</label>
+                        <input type="tel" maxLength={3}
                         onChange={(event) => {setCcv(event.target.value)}}/>
                     </article> 
                 </div>
                 <br />
                 <div className='vendor-container'>
                     <label className='label-title' htmlFor="vendor">VENDOR</label>
-                    <select name="vendor" id="vendor" className='vendor-dropdown'
+                    <select name="vendor" className='vendor-dropdown'
                     onChange={(event) => {setVendor(event.target.value)}}>
                         <option value="bitcoinInc">BITCOIN INC</option>
                         <option value="ninjaBank">NINJA BANK</option>
