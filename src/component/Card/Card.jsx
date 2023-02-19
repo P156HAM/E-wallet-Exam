@@ -12,7 +12,8 @@ function Card(props) {
         return(
             <article className={ `${className}` }>
                 <header className='card-header'>
-                    <img className='card__logo' src={ chipDark } alt="" />
+                    {vendor == 'bitcoinInc' ? <img className='card__logo' src={ chipDark } alt="" /> : 
+                    <img className='card__logo' src={ chipLight } alt="" />}
                     {vendor == 'bitcoinInc' ? <img className='card__logo' src={ bitcoinLogo } alt=""/> : ''}
                     {vendor == 'blockChainInc' ? <img className='card__logo' src={ blockchainLogo } alt="" /> : ''}
                     {vendor == 'ninjaBank' ? <img className='card__logo' src={ ninjaLogo } alt="" /> : ''}

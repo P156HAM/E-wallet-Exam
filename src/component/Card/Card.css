@@ -11,6 +11,8 @@
     font-style: normal;
     letter-spacing: 0.03em;
     align-self: flex-start;
+    border: 1px solid #000000;
+    border-radius: 8px;
 }
 
 .card-container-evilcorp {
@@ -27,6 +29,8 @@
     border-radius: 8px;
     color: #FFFFFF;
     letter-spacing: 0.03em;
+    border: 1px solid #000000;
+    border-radius: 8px;
 }
 
 .card-container-ninjabank {
@@ -40,6 +44,8 @@
     font-style: normal;
     letter-spacing: 0.03em;
     color: #FFFFFF;
+    border: 1px solid #000000;
+    border-radius: 8px;
 }
 
 .card-container-bitcoininc {
@@ -52,6 +58,8 @@
     font-family: 'PT Mono';
     font-style: normal;
     letter-spacing: 0.03em;
+    border: 1px solid #000000;
+    border-radius: 8px;
 }
 
 .card-header {

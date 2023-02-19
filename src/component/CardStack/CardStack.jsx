@@ -1,19 +1,12 @@
 import './CardStack.css'
-import chipDark from '../../assets/chip-dark.svg'
-import chipLight from '../../assets/chip-light.svg'
-import bitcoinLogo from '../../assets/vendor-bitcoin.svg'
-import blockchainLogo from '../../assets/vendor-blockchain.svg'
-import evilLogo from '../../assets/vendor-evil.svg'
-import ninjaLogo from '../../assets/vendor-ninja.svg'
 import Card from '../Card/Card'
-import { useState } from 'react'
 
 function CardStack(props) {
     const { card, onClick } = props;
 
     if(card) {
         return(
-            <article className='card-container' onClick={ onClick }>
+            <article className={`card-container__${card.vendor.toLowerCase()} card`} onClick={ onClick }>
                 <Card
                 className={`card-container-${card.vendor.toLowerCase()} card-container-${card.vendor.toLowerCase()}__stack`}
                 vendor={card.vendor}

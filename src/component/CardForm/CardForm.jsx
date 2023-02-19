@@ -1,9 +1,4 @@
 import './CardForm.css'
-import bitcoinLogo from '../../assets/vendor-bitcoin.svg'
-import blockchainLogo from '../../assets/vendor-blockchain.svg'
-import evilLogo from '../../assets/vendor-evil.svg'
-import ninjaLogo from '../../assets/vendor-ninja.svg'
-import chipDark from '../../assets/chip-dark.svg'
 import { useState } from 'react'
 import { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
@@ -17,26 +12,12 @@ function CardForm() {
     const [ validThru, setValidThru ] = useState('MM/YY')
     const [ ccv, setCcv ] = useState('')
     const [ vendor, setVendor ] = useState('bitcoinInc')
-    const [ cardColor, setCardColor ] = useState('#D0D0D0')
-    
     
     useEffect(() => {
         if(card) {
             localStorage.setItem('addedCard', JSON.stringify(card))
         }
     }, [card])
-
-    useEffect(() => {
-        if(vendor == 'bitcoinInc') {
-            setCardColor('#FFAE34')
-        } else if(vendor == 'blockChainInc') {
-            setCardColor('#8B58F9')
-        } else if(vendor == 'ninjaBank') {
-            setCardColor('#222222')
-        } else {
-            setCardColor('#F33355')
-        }
-    }, [vendor])
 
     function renderCard () {
         const addedCard = {
@@ -45,7 +26,6 @@ function CardForm() {
             validThru,
             ccv,
             vendor,
-            cardColor
         }
         setCard((currentCard) => {
             return[...currentCard, addedCard]
@@ -57,14 +37,15 @@ function CardForm() {
 
     useEffect(() => {
          if(ccv.length > 0) {
-             navigate('/', { state: card })
+             navigate('/')
          }
     }, [card])
 
     function handelClick() {
-        renderCard()
+        if(cardNumber && cardHolder && vendor && validThru && ccv) {
+            renderCard()
+        } 
     } 
-
 
     return(
         <div className='main-container'>
@@ -91,20 +72,20 @@ function CardForm() {
                     <article className='container__valid-thru'>
                         <br />
                         <label className='label-title' htmlFor="valid-thru">VALID THRU</label>
-                        <input type="text" id='valid-thru' maxLength={5}
+                        <input type="tel" id='valid-thru' maxLength={4}
                         onChange={(event) => {setValidThru((event.target.value).match(/\d{1,2}/g).join('/'))}} />
                     </article>
                     <article className='container__ccv'>
                         <br />
                         <label className='label-title' htmlFor="ccv">CCV</label>
-                        <input type="text" id='ccv'
+                        <input type="tel" id='ccv' maxLength={3}
                         onChange={(event) => {setCcv(event.target.value)}}/>
                     </article> 
                 </div>
                 <br />
                 <div className='vendor-container'>
                     <label className='label-title' htmlFor="vendor">VENDOR</label>
-                    <select name="vendor" id="vendor" className='vendor-dropdown' 
+                    <select name="vendor" id="vendor" className='vendor-dropdown'
                     onChange={(event) => {setVendor(event.target.value)}}>
                         <option value="bitcoinInc">BITCOIN INC</option>
                         <option value="ninjaBank">NINJA BANK</option>

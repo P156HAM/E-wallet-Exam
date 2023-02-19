@@ -1,4 +1,4 @@
-import CardForm from "./component/CardForm/CardForm";
+import AddCard from "./view/AddCard/AddCard";
 import Home from "./view/Home/Home";
 import { createBrowserRouter } from "react-router-dom";
 
@@ -9,7 +9,7 @@ const router = createBrowserRouter([
     },
     {
         path: '/addcard',
-        element: <CardForm />
+        element: <AddCard />
     }
 ]); 
 

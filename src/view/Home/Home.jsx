@@ -1,6 +1,5 @@
 import './Home.css'
 import Top from '../../component/Top/Top'
-import Card from '../../component/Card/Card';
 import CardStack from '../../component/CardStack/CardStack';
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
@@ -8,7 +7,6 @@ import { useNavigate } from 'react-router-dom';
 
 function Home() {
     const [ state, setState ] = useState([]);
-    
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -32,15 +30,26 @@ function Home() {
         )
     }) 
 
+    function deleteCard() {
+        let data = JSON.parse(localStorage.getItem('addedCard'))
+        data = data.filter((card) => {
+            return card.cardNumber !== activeCard.cardNumber
+        })
+        localStorage.setItem('addedCard', JSON.stringify(data))
+        setState(data);
+        setActiveCard(null)
+    }
 
     return(
-        <div>
+        <div className='home'>
             <Top activeCard={ activeCard } />
             <div className='cards-container'>
             { cards }
             </div>
             <button className='add-card__button'
             onClick={() => navigate('/addcard') }>ADD A NEW CARD</button>
+            <button className='delete-card__button'
+            onClick={ deleteCard }>DELETE CARD</button>
         </div>
     )
 }

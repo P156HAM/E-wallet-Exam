@@ -1,7 +1,17 @@
+
 .cards-container {
-    margin-top: 50px;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    margin-top: 300px;
+    height: auto;
+    z-index: 3;
+    position: relative;
+}
+
+.cards-container .card {
+    margin-top: -190px;
+    position: relative;
 }
 
 .add-card__button {
@@ -9,9 +19,27 @@
     height: 80px;
     border: 1px solid #000000;
     border-radius: 8px;
-    margin-top: 43px;
+    margin-top: 18px;
     background-color: #FFFFFF;
     font-size: 22px;
     font-family: 'PT Mono';
     font-weight: 700;
+}
+
+.delete-card__button {
+    width: 382px;
+    height: 80px;
+    border: 1px solid #000000;
+    border-radius: 8px;
+    margin-top: 10px;
+    background-color: #FFFFFF;
+    font-size: 22px;
+    font-family: 'PT Mono';
+    font-weight: 700;
+    color: #c70000;
+}
+
+.delete-card__button:hover {
+    background-color: #c70000;
+    color: #FFFFFF;
 }
